@@ -1,5 +1,6 @@
 package com.app.codemate.controller;
 
+import com.app.codemate.request.SnippetSaveRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -24,5 +25,15 @@ public class SnippetController {
     @GetMapping("execute-limit-reached")
     public Response<?> executeLimitReached() {
         return new Response<>(snippetService.executeLimitReached());
+    }
+
+    @PostMapping("save")
+    public Response<?> save(@RequestBody @Valid SnippetSaveRequest request) {
+        return new Response<>(snippetService.save(request));
+    }
+
+    @GetMapping("{uid}")
+    public Response<?> getSnippet(@PathVariable("uid") String uid) {
+        return new Response<>(snippetService.getSnippet(uid));
     }
 }
