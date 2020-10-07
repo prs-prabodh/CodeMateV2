@@ -10,5 +10,6 @@ import lombok.ToString;
 public class JDoodleExecuteRequest extends JDoodleBaseRequest {
     private String script;
     private String language;
-    private int versionIndex;
+    private int    versionIndex;
+    private String stdin;
 }

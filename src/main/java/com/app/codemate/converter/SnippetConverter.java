@@ -15,6 +15,7 @@ public class SnippetConverter {
         JDoodleExecuteRequest doodleExecuteRequest = new JDoodleExecuteRequest();
         doodleExecuteRequest.setScript(request.getScript());
         doodleExecuteRequest.setLanguage(request.getLanguage().getValue());
+        doodleExecuteRequest.setStdin(request.getStdin());
         return doodleExecuteRequest;
     }
 

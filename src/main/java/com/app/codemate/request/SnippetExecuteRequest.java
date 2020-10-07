@@ -13,8 +13,10 @@ import javax.validation.constraints.NotNull;
 @ToString
 public class SnippetExecuteRequest {
 
-    private String       script;
+    private String script;
 
     @NotNull
     private LanguageEnum language;
+
+    private String stdin;
 }
