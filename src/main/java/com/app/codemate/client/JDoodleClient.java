@@ -1,5 +1,6 @@
 package com.app.codemate.client;
 
+import com.app.codemate.exception.ApiException;
 import com.app.codemate.request.JDoodleBaseRequest;
 import com.app.codemate.response.JDoodleCreditUseResponse;
 import lombok.extern.log4j.Log4j2;
@@ -27,9 +28,14 @@ public class JDoodleClient extends BaseClient {
         ParameterizedTypeReference<JDoodleExecuteResponse> typeReference = new ParameterizedTypeReference<JDoodleExecuteResponse>() {
         };
         log.info("jD exec: {}", request);
-        JDoodleExecuteResponse response = exchange(HttpMethod.POST, url, httpHeaders, request, typeReference);
-        log.info("jD resp: {}", response);
-        return response;
+        try {
+            JDoodleExecuteResponse response = exchange(HttpMethod.POST, url, httpHeaders, request, typeReference);
+            log.info("jD resp: {}", response);
+            return response;
+        } catch (Exception e) {
+            log.error("jD err: {}", e.getMessage());
+            throw new ApiException(ApiException.ApiExceptionEnum.JDOODLE_FAILED);
+        }
     }
 
     public JDoodleCreditUseResponse getCreditUsage(JDoodleBaseRequest request) {
@@ -39,8 +45,13 @@ public class JDoodleClient extends BaseClient {
         ParameterizedTypeReference<JDoodleCreditUseResponse> typeReference = new ParameterizedTypeReference<JDoodleCreditUseResponse>() {
         };
         log.info("jD usage: {}", request);
-        JDoodleCreditUseResponse response = exchange(HttpMethod.POST, url, httpHeaders, request, typeReference);
-        log.info("jD resp: {}", response);
-        return response;
+        try {
+            JDoodleCreditUseResponse response = exchange(HttpMethod.POST, url, httpHeaders, request, typeReference);
+            log.info("jD resp: {}", response);
+            return response;
+        } catch (Exception e) {
+            log.error("jD err: {}", e.getMessage());
+            throw new ApiException(ApiException.ApiExceptionEnum.JDOODLE_FAILED);
+        }
     }
 }

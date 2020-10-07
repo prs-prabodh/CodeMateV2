@@ -17,6 +17,7 @@ public class SnippetController {
     @Autowired
     private SnippetService snippetService;
 
+    @CrossOrigin(origins = "*")
     @PostMapping("execute")
     public Response<?> execute(@RequestBody @Valid SnippetExecuteRequest request) {
         return new Response<>(snippetService.execute(request));

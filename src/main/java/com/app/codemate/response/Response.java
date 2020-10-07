@@ -12,6 +12,12 @@ public class Response <T> extends BaseResponse {
 
     public Response() {}
 
+    public Response(String errorCode, String errorMessage) {
+        this.setErrorCode(errorCode);
+        this.setMessage(errorMessage);
+        this.setSuccess(false);
+    }
+
     public Response(T data) {
         this.data = data;
     }

@@ -17,7 +17,4 @@ public class SnippetExecuteRequest {
 
     @NotNull
     private LanguageEnum language;
-
-    @NotNull
-    private VersionEnum  version;
 }
