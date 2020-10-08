@@ -28,11 +28,13 @@ public class SnippetController {
         return new Response<>(snippetService.executeLimitReached());
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping("save")
     public Response<?> save(@RequestBody @Valid SnippetSaveRequest request) {
         return new Response<>(snippetService.save(request));
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("{uid}")
     public Response<?> getSnippet(@PathVariable("uid") String uid) {
         return new Response<>(snippetService.getSnippet(uid));

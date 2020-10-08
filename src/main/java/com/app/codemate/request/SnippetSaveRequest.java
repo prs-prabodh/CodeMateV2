@@ -18,7 +18,4 @@ public class SnippetSaveRequest {
 
     @NotNull
     private LanguageEnum language;
-
-    @NotNull
-    private VersionEnum version;
 }
