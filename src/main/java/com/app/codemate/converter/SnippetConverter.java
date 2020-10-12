@@ -45,7 +45,6 @@ public class SnippetConverter {
         MinSnippetDTO minSnippetDTO = new MinSnippetDTO();
         minSnippetDTO.setSnippet(snippet.getSnippet());
         minSnippetDTO.setLanguage(snippet.getLanguage());
-        minSnippetDTO.setVersion(snippet.getVersion());
         return minSnippetDTO;
     }
 }
