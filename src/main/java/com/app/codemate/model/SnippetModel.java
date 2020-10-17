@@ -19,4 +19,8 @@ public class SnippetModel extends AbstractModel {
     private String snippet;
 
     private LanguageEnum language;
+
+    private String input;
+
+    private String output;
 }
