@@ -1,6 +1,8 @@
 package com.app.codemate.controller;
 
+import com.app.codemate.model.SnippetModel;
 import com.app.codemate.request.SnippetSaveRequest;
+import com.app.codemate.util.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -38,5 +40,12 @@ public class SnippetController {
     @GetMapping("{uid}")
     public Response<?> getSnippet(@PathVariable("uid") String uid) {
         return new Response<>(snippetService.getSnippet(uid));
+    }
+
+    @CrossOrigin(origins = "*")
+    @PutMapping("{uid}")
+    public Response<?> editSnippet(@RequestBody SnippetSaveRequest request, @PathVariable("uid") String uid) {
+        snippetService.editSnippet(request, uid);
+        return new Response<>(Constants.OK);
     }
 }

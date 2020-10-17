@@ -8,6 +8,9 @@ import com.app.codemate.request.SnippetSaveRequest;
 import com.app.codemate.response.JDoodleExecuteResponse;
 import com.app.codemate.response.SnippetExecuteResponse;
 import com.app.codemate.response.SnippetSaveResponse;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.Objects;
 
 public class SnippetConverter {
     public static JDoodleExecuteRequest convertToJDoodleExecuteRequest(SnippetExecuteRequest request) {
@@ -33,6 +36,11 @@ public class SnippetConverter {
         snippet.setLanguage(request.getLanguage());
         snippet.setUid(uid);
         return snippet;
+    }
+
+    public static void convertToSnippetModel(SnippetModel snippet, SnippetSaveRequest request) {
+        snippet.setSnippet(request.getSnippet());
+        snippet.setLanguage(request.getLanguage());
     }
 
     public static SnippetSaveResponse convertToSnippetSaveResponse(SnippetModel snippet) {
