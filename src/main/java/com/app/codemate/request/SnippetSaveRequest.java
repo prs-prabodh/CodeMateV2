@@ -17,4 +17,8 @@ public class SnippetSaveRequest {
 
     @NotNull
     private LanguageEnum language;
+
+    private String input;
+
+    private String output;
 }

@@ -8,9 +8,6 @@ import com.app.codemate.request.SnippetSaveRequest;
 import com.app.codemate.response.JDoodleExecuteResponse;
 import com.app.codemate.response.SnippetExecuteResponse;
 import com.app.codemate.response.SnippetSaveResponse;
-import org.apache.commons.lang3.StringUtils;
-
-import java.util.Objects;
 
 public class SnippetConverter {
     public static JDoodleExecuteRequest convertToJDoodleExecuteRequest(SnippetExecuteRequest request) {
@@ -34,6 +31,8 @@ public class SnippetConverter {
         SnippetModel snippet = new SnippetModel();
         snippet.setSnippet(request.getSnippet());
         snippet.setLanguage(request.getLanguage());
+        snippet.setInput(request.getInput());
+        snippet.setOutput(request.getOutput());
         snippet.setUid(uid);
         return snippet;
     }
@@ -41,6 +40,8 @@ public class SnippetConverter {
     public static void convertToSnippetModel(SnippetModel snippet, SnippetSaveRequest request) {
         snippet.setSnippet(request.getSnippet());
         snippet.setLanguage(request.getLanguage());
+        snippet.setInput(request.getInput());
+        snippet.setOutput(request.getOutput());
     }
 
     public static SnippetSaveResponse convertToSnippetSaveResponse(SnippetModel snippet) {
@@ -53,6 +54,8 @@ public class SnippetConverter {
         MinSnippetDTO minSnippetDTO = new MinSnippetDTO();
         minSnippetDTO.setSnippet(snippet.getSnippet());
         minSnippetDTO.setLanguage(snippet.getLanguage());
+        minSnippetDTO.setInput(snippet.getInput());
+        minSnippetDTO.setOutput(snippet.getOutput());
         return minSnippetDTO;
     }
 }
