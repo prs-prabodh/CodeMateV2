@@ -61,7 +61,7 @@ public class SnippetController {
      *
      * Consumer - Snippy Frontend
      * @param uid UID of saved snippet
-     * @return Object containing code snippet, language and I/O wrapped in Response
+     * @return Object containing code snippet UID, wrapped in Response
      */
     @CrossOrigin(origins = "*")
     @GetMapping("{uid}")
@@ -76,12 +76,11 @@ public class SnippetController {
      * Consumer - Snippy Frontend
      * @param request Object containing edited values of snippet
      * @param uid UID of snippet
-     * @return String "OK" wrapped in Response
+     * @return Object containing code snippet UID, wrapped in Response
      */
     @CrossOrigin(origins = "*")
     @PutMapping("{uid}")
     public Response<?> editSnippet(@RequestBody SnippetSaveRequest request, @PathVariable("uid") String uid) {
-        snippetService.editSnippet(request, uid);
-        return new Response<>(Constants.OK);
+        return new Response<>(snippetService.editSnippet(request, uid));
     }
 }

@@ -63,12 +63,13 @@ public class SnippetService {
         return SnippetConverter.convertToMinSnippetDTO(snippet);
     }
 
-    public void editSnippet(SnippetSaveRequest request, String uid) {
+    public SnippetSaveResponse editSnippet(SnippetSaveRequest request, String uid) {
         SnippetModel snippet = snippetRepository.findByUid(uid);
         if (snippet == null) {
             throw new ApiException(ApiException.ApiExceptionEnum.SNIPPET_NOT_FOUND);
         }
         SnippetConverter.convertToSnippetModel(snippet, request);
         snippetRepository.save(snippet);
+        return SnippetConverter.convertToSnippetSaveResponse(snippet);
     }
 }
