@@ -7,6 +7,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class JDoodleBaseRequest {
-    private String clientId = Constants.JDoodle.CLIENT_ID;
-    private String clientSecret = Constants.JDoodle.CLIENT_SECRET;
+    private String clientId = System.getenv("jdoodle.clientId");
+    private String clientSecret = System.getenv("jdoodle.clientSecret");
 }
