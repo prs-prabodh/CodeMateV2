@@ -1,6 +1,5 @@
 package com.app.codemate.controller;
 
-import com.app.codemate.model.SnippetModel;
 import com.app.codemate.request.SnippetSaveRequest;
 import com.app.codemate.util.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
