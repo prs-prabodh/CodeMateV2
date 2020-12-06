@@ -1,4 +1,4 @@
-# CodeMateV2
+# Snipy (CodeMateV2)
 <b>Spring Boot</b> based Code Execution and snippet sharing backend app.
 
 [Live Demo](https://snipy.gigalixirapp.com/)
